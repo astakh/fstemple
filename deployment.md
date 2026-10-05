@@ -82,10 +82,6 @@ Application (frontend and API): `https://your-app.fastapicloud.dev`
 
 Interactive API docs: `https://your-app.fastapicloud.dev/docs`
 
-## Docker Compose
-
-For deployment to your own server, see the [Docker Compose deployment guide](./deployment-docker-compose.md).
-
 ## GitHub Repository Automation
 
 Install the following GitHub Apps to enable the included repository automation:

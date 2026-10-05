@@ -2,18 +2,12 @@
 
 ## Requirements
 
-* [Docker](https://www.docker.com/).
+* [PostgreSQL](https://www.postgresql.org/) running locally (or a connection string in `.env` pointing to one).
 * [uv](https://docs.astral.sh/uv/) for Python package and environment management.
 
 ## Local Development
 
-Run the backend locally and connect it to PostgreSQL in Docker Compose.
-
-From the project root, start PostgreSQL and Mailpit:
-
-```console
-$ docker compose up -d db mailpit
-```
+Make sure a local PostgreSQL server is running and that the settings in `.env` point to it (`_test` is appended to the database name during tests).
 
 Then, from `./backend/`, install the dependencies, prepare the database, and start the development server:
 
@@ -37,27 +31,6 @@ There are already configurations in place to run the backend through the VS Code
 
 The setup is also already configured so you can run the tests through the VS Code Python tests tab.
 
-## Full Stack with Docker Compose
-
-To run the backend and built frontend in Docker Compose:
-
-```console
-$ docker compose run --rm backend bash scripts/prestart.sh
-$ docker compose watch
-```
-
-The application is available at `http://localhost:8000`.
-
-### Docker Compose Override
-
-The `compose.override.yml` file contains local settings for published ports, source synchronization, automatic image rebuilds, and backend reloads. Docker Compose applies it automatically when you run `docker compose` without an explicit file list.
-
-To open a shell in the backend container:
-
-```console
-$ docker compose exec backend bash
-```
-
 ## Backend Tests
 
 To test the backend from the `backend` directory, run:
@@ -70,29 +43,13 @@ The tests run with Pytest. Modify existing tests or add new ones in `./backend/t
 
 If you use GitHub Actions, the tests will run automatically.
 
-### Test a Running Stack
-
-If your stack is already up and you just want to run the tests, you can use:
-
-```bash
-docker compose exec backend bash scripts/tests-start.sh
-```
-
-The `/app/backend/scripts/tests-start.sh` script calls `pytest`. If you need to pass extra arguments to `pytest`, you can pass them to that command and they will be forwarded.
-
-For example, to stop on first error:
-
-```bash
-docker compose exec backend bash scripts/tests-start.sh -x
-```
-
 ### Test Coverage
 
 When the tests run, they generate `htmlcov/index.html`. Open it in your browser to inspect the test coverage.
 
 ## Migrations
 
-Make sure you create a revision of your models and upgrade the database with that revision every time you change them. From the `backend` directory, use `uv` to run Alembic against the PostgreSQL container:
+Make sure you create a revision of your models and upgrade the database with that revision every time you change them. From the `backend` directory, use `uv` to run Alembic against the PostgreSQL database:
 
 * Alembic is already configured to import your SQLModel models from `./backend/app/models.py`.
 

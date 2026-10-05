@@ -1,6 +1,5 @@
 # Full Stack FastAPI Template
 
-[![Test Docker Compose](../../actions/workflows/test-docker-compose.yml/badge.svg)](../../actions/workflows/test-docker-compose.yml)
 [![Test Backend](../../actions/workflows/test-backend.yml/badge.svg)](../../actions/workflows/test-backend.yml)
 
 ## Technology Stack and Features
@@ -17,8 +16,6 @@
   - 🧪 [Playwright](https://playwright.dev) for end-to-end testing.
   - 🦇 Dark mode support.
 - ☁️ [FastAPI Cloud](https://fastapicloud.com) for deployment.
-- 🐋 [Docker Compose](https://www.docker.com) for local services and self-hosted deployment.
-  - 📞 [Traefik](https://traefik.io) as a reverse proxy with automatic HTTPS.
 - 🔒 Secure password hashing by default.
 - 🔑 JWT (JSON Web Token) authentication.
 - 📫 Email-based password recovery.
@@ -71,13 +68,11 @@ Frontend docs: [frontend/README.md](./frontend/README.md).
 
 FastAPI Cloud deployment: [deployment.md](./deployment.md).
 
-Self-hosted deployment with Docker Compose: [deployment-docker-compose.md](./deployment-docker-compose.md).
-
 ## Development
 
 General development docs: [development.md](./development.md).
 
-This includes the local FastAPI and Vite workflow, Docker Compose services, `.env` configuration, and more.
+This includes the local FastAPI and Vite workflow, `.env` configuration, and more.
 
 ## Release Notes
 
